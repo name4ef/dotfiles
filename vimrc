@@ -1,5 +1,6 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" requred for ViIMproved
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,7 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Align'
 "Plugin 'tracwiki'
 Plugin 'nsmgr8/vitra'
-"Plugin 'benmills/vimux'
+Plugin 'benmills/vimux'
 Plugin 'vim-scripts/taglist.vim'
 "Plugin 'tpope/vim-commentary' " Just /* */ comment only?
 "Plugin 'vimperator/vimperator.vim'
@@ -103,6 +104,8 @@ set t_Co=256
 
 " Disable automatic creating backup files (filename~)
 set nobackup
+set nowritebackup
+set noundofile
 
 " Set string numeration
 set number
@@ -148,37 +151,31 @@ let g:changelog_username="Efim Trivozhenko <name4ef@gmail.ru>"
 " For changemind.vim
 let g:changemind_username="Efim Trivozhenko <name4ef@gmail.com>"
 
-" My key bindings
-:map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
-:map <F2> :TlistToggle<CR>
-:map <F3> :echo "Current time is " . strftime('%c')<CR>
-":map <F5> :echo "Time from point: " . system("~/own/script.php")<CR>
-:map <F5> :silent make\|redraw!<CR>
-:map <F6> :NERDTreeToggle<CR>
-:map <F7> :set spelllang=ru spell<CR>
-":map <F8> :set nospell<CR>
-:map <F8> :run<CR>
-:map <F9> :VimuxRunCommand("clear; make && make run")<CR>
-:map <F10> :VimuxCloseRunner<CR>
-:imap <F2> <C-R>=strftime("%H:%M")." "<CR>
-:imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
-:imap <F5> <C-R>=system("~/own/script.php")<CR>
-
-"source ~/.vim/php-doc.vim
-"inoremap <C-C> <ESC>:call PhpDocSingle()<CR>i
-"nnoremap <C-C> :call PhpDocSingle()<CR>
-"vnoremap <C-C> :call PhpDocRange()<CR>
-
-"set laststatus=2   " Always show the statusline (for powerline)
-
-" Note that in vim 7.4 the html tags html, head, body, and some others are not
-" indented by default.
+" vim-7.4: this tags and some others are not indented by default
 let g:html_indent_inctags = "html,body,head,tbody"
 
-set ts=4
-set sw=4
+" Close NERDTree buffer after file selected
+let NERDTreeQuitOnOpen = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" My key bindings
+"
+map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
+map <F2> :TlistToggle<CR>
+" switch between source and header files:
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+map <F5> :silent make\|redraw!<CR>
+map <F6> :NERDTreeToggle<CR>
+map <F7> :set spelllang=ru spell<CR>
+"map <F8> :run<CR>
+map <F8> :VimuxRunLastCommand<CR>
+"map <F9> :VimuxRunCommand("clear; make && make run")<CR>
+map <Leader><Esc> :VimuxCloseRunner<CR>
+
+imap <F2> <C-R>=strftime("%H:%M")." "<CR>
+imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
+
 "
 " Vimux commands (past from :help vimux):
 "
@@ -188,7 +185,7 @@ map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 map <Leader>rq :call VimuxRunCommand("clear; rspec " . bufname("%"), 0)<CR>
 " Prompt for a command to run map
 map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vm :VimuxPromptCommand("make ")<CR>
+map <Leader>vm :VimuxPromptCommand("make")<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Inspect runner pane map
@@ -201,10 +198,6 @@ map <Leader>vs :VimuxInterruptRunner<CR>
 map <Leader>vc :VimuxClearRunnerHistory<CR>
 " Zoom the tmux runner page
 map <Leader>vz :VimuxZoomRunner<CR>
-" Compile currently opened latex file to pdf
-autocmd Filetype tex nnoremap <buffer> <Leader>rr :update<Bar>:call VimuxRunCommandInDir('latexmk -pdf', 1)<CR>
-" Push the repository of the currently opened file
-nnoremap <leader>gp :call VimuxRunCommandInDir("git push", 0)<CR>
 
 map <Leader>vm :VimuxRunCommand("clear; make && make run")<CR>
 
@@ -266,5 +259,12 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+"source ~/.vim/php-doc.vim
+"inoremap <C-C> <ESC>:call PhpDocSingle()<CR>i
+"nnoremap <C-C> :call PhpDocSingle()<CR>
+"vnoremap <C-C> :call PhpDocRange()<CR>
+
+"set laststatus=2   " Always show the statusline (for powerline)
 
 source ~/.vimrc.local
