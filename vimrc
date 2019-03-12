@@ -50,7 +50,7 @@ let g:airline_right_sep=' '
 "Plugin 'edkolev/tmuxline.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'farseer90718/vim-taskwarrior'
-Plugin 'relaxedgreen'
+"Plugin 'relaxedgreen'
 
 Plugin 'vimwiki/vimwiki'
 

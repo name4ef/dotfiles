@@ -33,6 +33,7 @@ then
     echo ""
 
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    #TODO some like: vim +VundleInstall
 fi
 
 echo ""
