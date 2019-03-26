@@ -298,4 +298,7 @@ set softtabstop=4
 
 "set laststatus=2   " Always show the statusline (for powerline)
 
-source ~/.vimrc.local
+try
+    source ~/.vimrc.local
+catch
+endtry
