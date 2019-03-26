@@ -16,7 +16,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
-"Plugin 'Lokaltog/vim-powerline'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'Align'
 "Plugin 'tracwiki'
@@ -35,18 +34,10 @@ Plugin 'whatyouhide/vim-gotham'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'jonstoler/werewolf.vim'
 
-Plugin 'vim-airline/vim-airline'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#keymap#enabled = 0
-"let g:airline_section_z  = '%3p%% %l/%L' "(percentage, line number, column number)
-"let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.whitespace = ''
-let g:airline_left_sep=' '
-let g:airline_right_sep=' '
+"Plugin 'Lokaltog/vim-powerline'
+"Plugin 'stephenmckinney/vim-solarized-powerline'
+"let g:Powerline_theme='short'
+"let g:Powerline_colorscheme='solarized256_dark'
 
 "Plugin 'edkolev/tmuxline.vim'
 Plugin 'Shougo/unite.vim'
@@ -54,6 +45,8 @@ Plugin 'farseer90718/vim-taskwarrior'
 "Plugin 'relaxedgreen'
 
 Plugin 'vimwiki/vimwiki'
+let taskwiki_disable_concealcursor="yes"
+Plugin 'tbabej/taskwiki'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -94,13 +87,36 @@ filetype plugin on
 "colorscheme xoria256
 "colorscheme gotham256
 "
-colorscheme PaperColor
-set background=dark " value: light|dark
-set t_Co=256
+"colorscheme PaperColor
+"set background=dark " value: light|dark
+"set t_Co=256
 "
-@colorscheme solarized
-@set background=dark " value: light|dark
+colorscheme solarized
+set background=dark " value: light|dark
 @let g:solarized_termcolors = 256
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#keymap#enabled = 0
+@"let g:airline_section_z  = '%3p%% %l/%L' "(percentage, line number, column number)
+@"let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+@if !exists('g:airline_symbols')
+@    let g:airline_symbols = {}
+@endif
+@let g:airline_symbols.linenr = ''
+@let g:airline_symbols.whitespace = ''
+@let g:airline_left_sep=' '
+@let g:airline_right_sep=' '
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+
+Plugin 'mhinz/vim-signify'
+autocmd ColorScheme solarized highlight SignColumn ctermbg=NONE guibg=NONE
+
+Plugin 'tpope/vim-fugitive'
 
 " Disable automatic creating backup files (filename~)
 set nobackup
@@ -108,7 +124,7 @@ set nowritebackup
 set noundofile
 
 " Set string numeration
-set number
+set number relativenumber
 
 " Vertical line for control string size
 set colorcolumn=80
@@ -143,6 +159,21 @@ endif
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
+"
+@let rumap = 'йцукенгшщзхъфывапролджэёячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ'
+@let enmap = 'qwertyuiop[]asdfghjkl;''\zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>' 
+@let mapLen = strchars(rumap)
+@let i = 0
+@while i < mapLen
+@    let ruChar = matchstr(rumap, ".", byteidx(rumap, i))
+@    let enChar = enmap[i]
+@    "echo 'map '.ruChar.' '.enChar
+@    execute 'map '.ruChar.' '.enChar
+@    execute 'cmap '.ruChar.' '.enChar
+@    let i += 1
+@endwhile
+@map Ё \|
+@cmap Ё \|
 
 " For changelog.vim
 let g:changelog_username="Efim Trivozhenko <name4ef@gmail.ru>"
