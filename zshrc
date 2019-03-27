@@ -39,6 +39,24 @@ task_info() {
     fi
 }
 
+run_with_bat()
+{
+    batfile=$1; shift
+    tmpfile="$TMP/tmp$$.bat"
+    echo "@echo off" > $tmpfile
+    echo "call \"%$batfile%vsvars32.bat\" >NUL:" >> $tmpfile
+    echo "bash -c \"%*\"" >> $tmpfile
+    cmd /c `cygpath -m "$tmpfile"` "$@"
+    status=$?
+    rm -f $tmpfile
+    return $status
+}
+
+run_vs14()
+{
+    run_with_bat VS140COMNTOOLS "$@"
+}
+
 ################################################################################
 
 #export LANG=en_US.UTF-8
@@ -122,5 +140,6 @@ alias twd_work='timew day aidriller'
 alias twm_work='timew month aidriller'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
+alias cl='run_vs14 cl $*'
 
 #source /usr/doc/task/scripts/zsh/_task
