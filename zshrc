@@ -77,6 +77,7 @@ if [ `whoami` = "root" ]; then
 else
 	export PS1='%~: '
 fi
+export TZ="Asia/Tomsk"
 setopt PROMPT_SUBST
 autoload -U colors && colors
 PROMPT='`task_info`%~: '
