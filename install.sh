@@ -2,7 +2,7 @@
 
 echo "Installation of dotfiles..."
 
-files="vimrc zshrc Xresources tmux.conf fluxbox/keys fluxbox/startup xsession"
+files="vimrc zshrc Xresources tmux.conf fluxbox/keys fluxbox/startup xsession minttyrc"
 
 PWD=$(pwd)
 
