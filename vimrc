@@ -124,7 +124,7 @@ set nowritebackup
 set noundofile
 
 " Set string numeration
-set number relativenumber
+set number
 
 " Vertical line for control string size
 set colorcolumn=80
