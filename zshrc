@@ -67,7 +67,8 @@ esac
 if [ $TERM = "screen-256color" ]; then
 	alias mc="TERM=xterm-256color mc"
 fi
-export PATH=$PATH:~/bin:~/pear/bin
+export PATH=$PATH:~/.bin:/usr/lib64/java/bin:~/Qt/Tools/QtCreator/bin:~/isdrill/aidriller/bin_release
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/isdrill/aidriller/bin_release
 #export PS1='\h:\W \u\$ '
 #export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
 export EDITOR=vim
@@ -78,6 +79,7 @@ else
 	export PS1='%~: '
 fi
 export TZ="Asia/Tomsk"
+export PAGER="less -RF"
 setopt PROMPT_SUBST
 autoload -U colors && colors
 PROMPT='`task_info`%~: '
