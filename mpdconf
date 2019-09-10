@@ -217,6 +217,13 @@ input {
 ##	mixer_index	"0"		# optional
 #}
 #
+audio_output {
+        type            "pipe"
+        name            "pipe to Sony WH-CH700N"
+        command         "aplay -D bluealsa:HCI=hci0,DEV=CC:98:8B:B5:A0:EF,PROFILE=a2dp -f cd 2>/dev/null"
+        format          "44100:16:2"
+        mixer_type "software"
+}
 # An example of an OSS output:
 #
 #audio_output {
@@ -279,12 +286,12 @@ input {
 #
 # An example of a pulseaudio output (streaming to a remote pulseaudio server)
 #
-audio_output {
-	type		"pulse"
-	name		"My Pulse Output"
-#	server		"remote_server"		# optional
-#	sink		"remote_server_sink"	# optional
-}
+#audio_output {
+#	type		"pulse"
+#	name		"My Pulse Output"
+##	server		"remote_server"		# optional
+##	sink		"remote_server_sink"	# optional
+#}
 #
 # An example of a winmm output (Windows multimedia API).
 #
