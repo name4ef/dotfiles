@@ -1,7 +1,7 @@
 mpd_host = "~/.mpd/socket"
 display_bitrate = "yes"
 colors_enabled = "yes"
-song_status_format = "$0{$8%t$9} on {$5%b$9} by {$3%a}"
+song_status_format = "$0{$8%t$9}@{$5%b$9}.{$3%a$9}:{$4%y$9}"
 song_columns_list_format = "(30)[green]{a}(40)[]{t|f}(30)[blue]{b}"
 progressbar_look = " •·"
 progressbar_boldness = "yes"
