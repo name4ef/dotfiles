@@ -299,3 +299,33 @@ set softtabstop=4
 "set laststatus=2   " Always show the statusline (for powerline)
 
 set scrolloff=0
+
+" Hide statusline by Shift + H
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        AirlineToggle
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        "set tabline=%
+        set nonumber
+        set colorcolumn=0
+        "set lines+=1
+    else
+        let s:hidden_all = 0
+        AirlineToggle
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+        "set tabline=%!airline#extensions#tabline#get()
+        set number
+        set colorcolumn=80
+        "set lines-=1
+    endif
+endfunction
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
+" https://unix.stackexchange.com/questions/140898/vim-hide-status-line-in-the-bottom#140899
