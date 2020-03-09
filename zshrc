@@ -59,7 +59,9 @@ run_vs14()
 
 ################################################################################
 
-#export LANG=en_US.UTF-8
+if [ `uname` = "Darwin" ]; then
+    export LANG=en_US.UTF-8
+fi
 #export TERM=xterm-256color
 case "$TERM" in
 	xterm*) TERM=xterm-256color
