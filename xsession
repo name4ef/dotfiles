@@ -34,7 +34,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 [[ -x `which unclutter` ]] && unclutter -idle 2 -grab -root &
 [[ -x `which xbindkeys` ]] && xbindkeys
 [[ -x `which dwmstatus` ]] && dwmstatus &
-setxkbmap -layout us,ru -option grp:shift_toggle &
+setxkbmap -layout us,ru -option grp:caps_toggle &
 xsetroot -solid '#000000'
 
 # Start the window manager:
