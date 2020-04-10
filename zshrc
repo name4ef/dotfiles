@@ -121,12 +121,16 @@ sdcv() {
         | less --quit-if-one-screen --no-init
 }
 
+if [ `uname -s` = "Darwin" ]; then
+    alias rsync='rsync -a --progress'
+else
+    alias rsync='rsync -a --info=progress2'
+fi
 
 alias grep='grep --color'
 #alias less='less -R'
 #alias cat='pygmentize -g'
 alias silence='sudo /usr/sbin/pm-suspend'
-alias rsync='rsync -a --info=progress2'
 alias youtube='youtube-viewer --video-player=mpv -colorful --subs-order=unread \
     --highlight'
 alias goodjokes='youtube-viewer --video-player=mpv -colorful --subs-order=unread \
@@ -146,5 +150,5 @@ alias twm_work='timew month isdrill'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
-alias calibre.push='rsync --del -L ~/Calibre\ Library eas:'
-alias calibre.pull='rsync --del eas:Calibre\\\ Library ~/'
+alias calibre_push='rsync --del -L ~/Calibre\ Library eas:'
+alias calibre_pull='rsync --del eas:Calibre\\\ Library ~/'
