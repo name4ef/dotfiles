@@ -84,7 +84,7 @@ export TZ="Asia/Tomsk"
 export PAGER="less -RF"
 setopt PROMPT_SUBST
 autoload -U colors && colors
-PROMPT='`task_info`%~: '
+PROMPT='`echo -e "\033[$LINES;0f";task_info`%~: '
 #PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 TMOUT=60
 
