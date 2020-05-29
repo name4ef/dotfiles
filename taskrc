@@ -14,8 +14,9 @@ urgency.inherit=on
 urgency.blocking.coefficient=0
 urgency.blocked.coefficient=0
 
-context.sysadm=pro:sysadm or +sysadm
-context.whatis=pro:whatis or +whatis
+context.sysadm=+sysadm
+context.whatis=+whatis
+context.today=due<=eod -BLOCKED
 
 alias.thisday=due<=tom
 alias.thisweek=due>eod and due<=eow+1d next
