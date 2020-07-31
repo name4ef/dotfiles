@@ -132,7 +132,7 @@ set colorcolumn=80
 set encoding=utf-8                                  " set character translation encoding
 set termencoding=utf-8                              " set terminal encoding
 set fileencoding=utf-8                              " set save encoding
-set fileencodings=utf8,koi8-r,cp1251,cp866,ucs-2le  " set list on encoding sort by preference
+set fileencodings=utf8,cp1251,koi8-r,cp866,ucs-2le  " set list on encoding sort by preference
 
 set cursorline " To highlight the current line use
 
@@ -186,7 +186,7 @@ let g:changemind_username="Efim Trivozhenko <name4ef@gmail.com>"
 let g:html_indent_inctags = "html,body,head,tbody"
 
 " Close NERDTree buffer after file selected
-let NERDTreeQuitOnOpen = 1
+"let NERDTreeQuitOnOpen = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -329,3 +329,5 @@ function! ToggleHiddenAll()
 endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 " https://unix.stackexchange.com/questions/140898/vim-hide-status-line-in-the-bottom#140899
+
+set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
