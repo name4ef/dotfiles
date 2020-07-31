@@ -57,6 +57,26 @@ run_vs14()
     run_with_bat VS140COMNTOOLS "$@"
 }
 
+# copy/paste selected text to system clipboard
+# TODO use xclip or xsel for other Unix-like
+function vi-yank-xclip
+{
+	zle vi-yank
+	echo "$CUTBUFFER" | pbcopy
+}
+
+function vi-put-after-xclip
+{
+	CUTBUFFER="$(pbpaste)"
+	zle vi-put-after
+}
+
+zle -N vi-yank-xclip
+zle -N vi-put-after-xclip
+
+bindkey -M vicmd 'y' vi-yank-xclip
+bindkey -M vicmd 'p' vi-put-after-xclip
+
 ################################################################################
 
 if [ `uname` = "Darwin" ]; then
@@ -69,7 +89,7 @@ esac
 if [ $TERM = "screen-256color" ]; then
 	alias mc="TERM=xterm-256color mc"
 fi
-export PATH=$PATH:~/.bin:/usr/lib64/java/bin:~/Qt/Tools/QtCreator/bin:~/isdrill/aidriller/bin_release
+export PATH=$PATH:~/.bin:/usr/lib64/java/bin:~/Qt/Tools/QtCreator/bin:/usr/local/bin/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/isdrill/aidriller/bin_release
 #export PS1='\h:\W \u\$ '
 #export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
