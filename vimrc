@@ -331,3 +331,5 @@ nnoremap <S-h> :call ToggleHiddenAll()<CR>
 " https://unix.stackexchange.com/questions/140898/vim-hide-status-line-in-the-bottom#140899
 
 set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
+" For taskwiki may be helpfull: pip3 --user install six tasklib
