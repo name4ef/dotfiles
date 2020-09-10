@@ -46,6 +46,7 @@ Plugin 'farseer90718/vim-taskwarrior'
 
 Plugin 'vimwiki/vimwiki'
 let taskwiki_disable_concealcursor="yes"
+let g:taskwiki_sort_order="urgency-"
 Plugin 'tbabej/taskwiki'
 
 " The following are examples of different formats supported.
