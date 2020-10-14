@@ -101,7 +101,6 @@ else
 	export PS1='%~: '
 fi
 export TZ="Asia/Tomsk"
-export PAGER="less -RF"
 setopt PROMPT_SUBST
 autoload -U colors && colors
 #PROMPT='`echo -e "\033[$LINES;0f";task_info`%~: '
@@ -171,5 +170,8 @@ alias twm_work='timew month isdrill'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
-alias calibre_push='rsync --del -L ~/Calibre\ Library eas:'
-alias calibre_pull='rsync --del eas:Calibre\\\ Library ~/'
+alias calibre_push='rsync --del -L ~/Calibre\ Library sambook:'
+alias calibre_pull='rsync --del sambook:Calibre\\\ Library ~/'
+alias qmake='~/qt/5.14.1/clang_64/bin/qmake'
+alias wbwol='wakeonlan "d8:50:e6:01:ef:44"'
+alias mswol='wakeonlan "00:25:22:8a:26:7c"'
