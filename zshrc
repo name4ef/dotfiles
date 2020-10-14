@@ -147,6 +147,8 @@ else
     alias rsync='rsync -a --info=progress2'
 fi
 
+setopt rmstarsilent # disable confirmation when removing through rm -rf dir/
+
 alias grep='grep --color'
 #alias less='less -R'
 #alias cat='pygmentize -g'
