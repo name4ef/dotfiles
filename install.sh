@@ -34,7 +34,9 @@ then
 
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     #TODO some like: vim +VundleInstall
+    #TODO for vimwiki may be useful: pip3 install --user six tasklib
 fi
 
+touch .taskrc.local .zshrc.local
 echo ""
 echo "Installation done."

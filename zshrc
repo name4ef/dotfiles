@@ -175,5 +175,5 @@ alias cl='run_vs14 cl $*'
 alias calibre_push='rsync --del -L ~/Calibre\ Library sambook:'
 alias calibre_pull='rsync --del sambook:Calibre\\\ Library ~/'
 alias qmake='~/qt/5.14.1/clang_64/bin/qmake'
-alias wbwol='wakeonlan "d8:50:e6:01:ef:44"'
-alias mswol='wakeonlan "00:25:22:8a:26:7c"'
+
+source ~/.zshrc.local
