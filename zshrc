@@ -175,5 +175,8 @@ alias cl='run_vs14 cl $*'
 alias calibre_push='rsync --del -L ~/Calibre\ Library sambook:'
 alias calibre_pull='rsync --del sambook:Calibre\\\ Library ~/'
 alias qmake='~/qt/5.14.1/clang_64/bin/qmake'
+alias task_push='pushd ~/.task && git commit -a --allow-empty-message -m "" && \
+    git push && popd'
+alias task_pull='pushd ~/.task && git checkout *.data; git pull && popd'
 
 source ~/.zshrc.local
