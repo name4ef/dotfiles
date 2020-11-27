@@ -17,7 +17,7 @@ urgency.blocked.coefficient=-0.1
 
 context.sysadm=+sysadm
 context.whatis=+whatis
-context.today=due<=eod
+context.today=due<=eod or sche=today
 
 alias.thisday=due<=tom
 alias.thisweek=due>eod and due<=eow+1d next
