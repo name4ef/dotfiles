@@ -176,6 +176,10 @@ alias calibre_pull='rsync --del sambook:Calibre\\\ Library ~/'
 alias qmake='~/qt/5.14.1/clang_64/bin/qmake'
 alias task_push='pushd ~/.task && \
     git commit -a -m "commit from $(hostname -s)" && git push && popd'
-alias task_pull='pushd ~/.task && git checkout *.data; git pull && popd'
+alias task_pull='pushd ~/.task && \
+    git checkout pending.data; git checkout completed.data; \
+    git pull && popd'
+alias task_status='pushd ~/.task && git status && popd'
+alias task_diff='pushd ~/.task && git diff && popd'
 
 source ~/.zshrc.local
