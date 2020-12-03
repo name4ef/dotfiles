@@ -57,12 +57,20 @@ run_vs14()
     run_with_bat VS140COMNTOOLS "$@"
 }
 
+alias rsync='rsync -a --info=progress2'
+XSEL=xsel
+
+if [ `uname` = "Darwin" ]; then
+    export LANG=en_US.UTF-8
+    alias rsync='rsync -a --progress'
+    XSEL=pbcopy
+fi
+
 # copy/paste selected text to system clipboard
-# TODO use xclip or xsel for other Unix-like
 function vi-yank-xclip
 {
 	zle vi-yank
-	echo "$CUTBUFFER" | pbcopy
+	echo "$CUTBUFFER" | $XSEL
 }
 
 function vi-put-after-xclip
@@ -79,9 +87,6 @@ bindkey -M vicmd 'p' vi-put-after-xclip
 
 ################################################################################
 
-if [ `uname` = "Darwin" ]; then
-    export LANG=en_US.UTF-8
-fi
 #export TERM=xterm-256color
 case "$TERM" in
 	xterm*) TERM=xterm-256color
@@ -140,12 +145,6 @@ sdcv() {
     /usr/bin/sdcv --non-interactive $@ \
         | less --quit-if-one-screen --no-init
 }
-
-if [ `uname -s` = "Darwin" ]; then
-    alias rsync='rsync -a --progress'
-else
-    alias rsync='rsync -a --info=progress2'
-fi
 
 setopt rmstarsilent # disable confirmation when removing through rm -rf dir/
 
