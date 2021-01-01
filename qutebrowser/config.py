@@ -1,3 +1,6 @@
+config.bind('gt', 'tab-next')
+config.bind('gT', 'tab-prev')
+
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
 # Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub)
