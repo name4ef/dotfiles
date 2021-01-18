@@ -37,6 +37,6 @@ then
     #TODO for vimwiki may be useful: pip3 install --user six tasklib
 fi
 
-touch ~/.{taskrc,zshrc}.local
+touch ~/.taskrc.local
 echo ""
 echo "Installation done."

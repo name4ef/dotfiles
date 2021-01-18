@@ -182,4 +182,11 @@ alias task_pull='pushd ~/.task && \
 alias task_status='pushd ~/.task && git status && popd'
 alias task_diff='pushd ~/.task && git diff && popd'
 
-source ~/.zshrc.local
+# https://github.com/benley/solarized-termcolor-osc4.git
+SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
+if [ -f $SOLARIZED ] && [ -z ${SSH_CLIENT+x} ] && (( $SHLVL == 1 )); then
+    source $SOLARIZED
+    cset 7 $base1
+fi
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
