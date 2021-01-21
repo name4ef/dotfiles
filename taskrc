@@ -15,20 +15,9 @@ urgency.blocking.coefficient=0.1
 urgency.blocked.coefficient=-0.1
 #urgency.uda.priority.H.coefficient=10
 
-alias.thisday=due<=tom
-alias.thisweek=due>eod and due<=eow+1d next
-alias.nextweek=due>eow+1d and due<=eow+8d list
-
 default.command=next
 
 max_active_tasks=1
 #journal.time=on
-
-report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
-report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.relative,due.relative,until.remaining,description.count,urgency
-
-report.workflow.filter=end.after:som-1m status:completed
-report.workflow.labels=UUID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description
-report.workflow.columns=uuid.short,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count
 
 include ~/.taskrc.local
