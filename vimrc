@@ -101,7 +101,7 @@ Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#keymap#enabled = 0
 @"let g:airline_section_z  = '%3p%% %l/%L' "(percentage, line number, column number)
-@"let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+let g:airline#extensions#whitespace#trailing_format = '[%s]'
 @if !exists('g:airline_symbols')
 @    let g:airline_symbols = {}
 @endif
@@ -118,6 +118,7 @@ Plugin 'mhinz/vim-signify'
 autocmd ColorScheme solarized highlight SignColumn ctermbg=NONE guibg=NONE
 
 Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
 
 " Disable automatic creating backup files (filename~)
 set nobackup
@@ -201,8 +202,8 @@ map <F5> :silent make\|redraw!<CR>
 map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
 "map <F8> :run<CR>
-map <F8> :VimuxRunLastCommand<CR>
-"map <F9> :VimuxRunCommand("clear; make && make run")<CR>
+map <F8> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
+map <F9> :VimuxInterruptRunner<CR>
 map <Leader><Esc> :VimuxCloseRunner<CR>
 
 imap <F2> <C-R>=strftime("%H:%M")." "<CR>
@@ -231,7 +232,7 @@ map <Leader>vc :VimuxClearRunnerHistory<CR>
 " Zoom the tmux runner page
 map <Leader>vz :VimuxZoomRunner<CR>
 
-map <Leader>vm :VimuxRunCommand("clear; make && make run")<CR>
+map <Leader>vm :VimuxRunCommand("make run")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
