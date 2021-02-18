@@ -33,22 +33,22 @@
 #"rxvt"
 #  Control + b:2 + Release
 
-#
 # Control of mpd over mpc
-#
-
 "mpc toggle"
   XF86AudioPlay
 "mpc toggle"
   m:0x0 + c:208
 "mpc toggle"
   m:0x0 + c:209
-
 "mpc next"
   XF86AudioNext
-
 "mpc prev"
   XF86AudioPrev
-
 "mpc stop"
   XF86AudioStop
+"mpc volume +5"
+  XF86AudioRaiseVolume
+"mpc volume -5"
+  XF86AudioLowerVolume
+"mpc volume 0"
+  XF86AudioMute
