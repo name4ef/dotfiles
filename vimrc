@@ -48,6 +48,7 @@ Plugin 'vimwiki/vimwiki'
 let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 Plugin 'tbabej/taskwiki'
+Plugin 'yegappan/grep'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -139,6 +140,9 @@ set fileencodings=utf8,cp1251,koi8-r,cp866,ucs-2le  " set list on encoding sort 
 set cursorline " To highlight the current line use
 
 let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
 
 set nocp
 filetype plugin on
@@ -189,6 +193,7 @@ let g:html_indent_inctags = "html,body,head,tbody"
 
 " Close NERDTree buffer after file selected
 "let NERDTreeQuitOnOpen = 1
+let NERDTreeHighlightCursorline = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -196,6 +201,9 @@ let g:html_indent_inctags = "html,body,head,tbody"
 "
 map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 map <F2> :TlistToggle<CR>
+map <F3> :Rgrep <cword> * <CR><CR>
+let Grep_Skip_Files = '*.bak *~ tags'
+let Grep_Skip_Dirs = 'doxygen'
 " switch between source and header files:
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F5> :silent make\|redraw!<CR>
@@ -335,3 +343,5 @@ nnoremap <S-h> :call ToggleHiddenAll()<CR>
 set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " For taskwiki may be helpfull: pip3 --user install six tasklib
+let VimuxRunnerIndex="1:0.0"
+map <F8> :VimuxInterruptRunner<CR> :VimuxRunCommand("make run")<CR>
