@@ -345,3 +345,6 @@ set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " For taskwiki may be helpfull: pip3 --user install six tasklib
 let VimuxRunnerIndex="1:0.0"
 map <F8> :VimuxInterruptRunner<CR> :VimuxRunCommand("make run")<CR>
+
+" Disable (hide through color) '~' character at start of empty line
+highlight NonText ctermfg=bg
