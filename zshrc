@@ -181,6 +181,7 @@ alias task_pull='pushd ~/.task && \
     git pull && popd'
 alias task_status='pushd ~/.task && git status && popd'
 alias task_diff='pushd ~/.task && git diff && popd'
+alias task_bytime='task rc.report.next.sort:scheduled'
 
 # https://github.com/benley/solarized-termcolor-osc4.git
 SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
