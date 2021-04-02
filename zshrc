@@ -94,7 +94,7 @@ esac
 if [ $TERM = "screen-256color" ]; then
 	alias mc="TERM=xterm-256color mc"
 fi
-export PATH=$PATH:~/.bin:/usr/lib64/java/bin:~/Qt/Tools/QtCreator/bin:/usr/local/bin/
+export PATH=$PATH:~/.bin:/usr/local/bin:~/.local/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/isdrill/aidriller/bin_release
 #export PS1='\h:\W \u\$ '
 #export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
@@ -171,17 +171,6 @@ alias twm_work='timew month isdrill'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
-alias calibre_push='rsync --del -L ~/Calibre\ Library sambook:'
-alias calibre_pull='rsync --del sambook:Calibre\\\ Library ~/'
-alias qmake='~/qt/5.14.1/clang_64/bin/qmake'
-alias task_push='pushd ~/.task && \
-    git commit -a -m "commit from $(hostname -s)" && git push && popd'
-alias task_pull='pushd ~/.task && \
-    git checkout pending.data; git checkout completed.data; \
-    git pull && popd'
-alias task_status='pushd ~/.task && git status && popd'
-alias task_diff='pushd ~/.task && git diff && popd'
-alias task_bytime='task rc.report.next.sort:scheduled'
 
 # https://github.com/benley/solarized-termcolor-osc4.git
 SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
