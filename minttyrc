@@ -1,5 +1,5 @@
-Transparency=low
-Font=DejaVu Sans Mono
+Transparency=off
+Font=Hack
 FontHeight=10
 Scrollbar=none
 CursorType=block
