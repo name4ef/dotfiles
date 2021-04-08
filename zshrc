@@ -32,12 +32,15 @@ workflow() {
 }
 
 task_info() {
-    printf '\033]2;%s\033\\' `hostname -f` # for restore of tmux's pane-title
     IDS=`task +ACTIVE ids`
 
     if [ $IDS ]; then
         echo "$IDS "
     fi
+}
+
+precmd() {
+    printf '\033]2;%s\033\\' `hostname -f` # for restore of tmux's pane-title
 }
 
 run_with_bat()
