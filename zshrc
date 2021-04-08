@@ -32,7 +32,7 @@ workflow() {
 }
 
 task_info() {
-    printf '\033]2;%s\033\\' `hostname` # for restore of tmux's pane-title
+    printf '\033]2;%s\033\\' `hostname -f` # for restore of tmux's pane-title
     IDS=`task +ACTIVE ids`
 
     if [ $IDS ]; then
