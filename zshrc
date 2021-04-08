@@ -57,6 +57,11 @@ run_vs14()
     run_with_bat VS140COMNTOOLS "$@"
 }
 
+sdcv() {
+    /usr/bin/sdcv --non-interactive $@ \
+        | less --quit-if-one-screen --no-init
+}
+
 alias rsync='rsync -a --info=progress2'
 XSEL=xsel
 
@@ -131,22 +136,21 @@ compinit
 bindkey '^P' up-history
 bindkey '^N' down-history
 
-################################################################################
-#
-# Colorization
-#
-
-#alias ls='ls --color' # it doesn't work on mac
-#LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
-#export LS_COLORS
-
-
-sdcv() {
-    /usr/bin/sdcv --non-interactive $@ \
-        | less --quit-if-one-screen --no-init
-}
-
 setopt rmstarsilent # disable confirmation when removing through rm -rf dir/
+
+# https://github.com/benley/solarized-termcolor-osc4.git
+SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
+if [ -f $SOLARIZED ] && [ -z ${SSH_CLIENT+x} ] && (( $SHLVL == 1 )); then
+    source $SOLARIZED
+    cset 7 $base1
+fi
+
+eval `dircolors ~/.dotfiles/dircolors.solarized-dark`
+if [ `uname` = "Darwin" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color'
+fi
 
 alias grep='grep --color'
 #alias less='less -R'
@@ -171,12 +175,5 @@ alias twm_work='timew month isdrill'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
-
-# https://github.com/benley/solarized-termcolor-osc4.git
-SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
-if [ -f $SOLARIZED ] && [ -z ${SSH_CLIENT+x} ] && (( $SHLVL == 1 )); then
-    source $SOLARIZED
-    cset 7 $base1
-fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
