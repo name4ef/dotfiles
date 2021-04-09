@@ -149,10 +149,11 @@ if [ -f $SOLARIZED ] && [ -z ${SSH_CLIENT+x} ] && (( $SHLVL == 1 )); then
     cset 7 $base1
 fi
 
-eval `dircolors ~/.dotfiles/dircolors.solarized-dark`
 if [ `uname` = "Darwin" ]; then
-    alias ls='ls -G'
+    eval `gdircolors ~/.dotfiles/dircolors.solarized-dark`
+    alias ls='gls --color'
 else
+    eval `dircolors ~/.dotfiles/dircolors.solarized-dark`
     alias ls='ls --color'
 fi
 
