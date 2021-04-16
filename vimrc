@@ -49,6 +49,7 @@ let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 Plugin 'tbabej/taskwiki'
 Plugin 'yegappan/grep'
+Plugin 'peterhoeg/vim-qml'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
