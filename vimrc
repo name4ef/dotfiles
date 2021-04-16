@@ -158,11 +158,7 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " For smart Russian layout (http://habrahabr.ru/post/98393/)
-if has('mac')
-    set keymap=russian-jcukenmac
-else
-    set keymap=russian-jcukenwin
-endif
+set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
