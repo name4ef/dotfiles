@@ -132,10 +132,7 @@ set nobackup
 set nowritebackup
 set noundofile
 
-" Set string numeration
-set number
-
-" Vertical line for control string size
+set number relativenumber
 set colorcolumn=80
 
 set encoding=utf-8                                  " set character translation encoding
