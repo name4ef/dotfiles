@@ -122,6 +122,11 @@ autocmd ColorScheme solarized highlight SignColumn ctermbg=NONE guibg=NONE
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
 
+" For markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+
 " Disable automatic creating backup files (filename~)
 set nobackup
 set nowritebackup
@@ -159,6 +164,7 @@ endif
 
 " For smart Russian layout (http://habrahabr.ru/post/98393/)
 set keymap=russian-jcukenwin
+"set keymap=russian-jcukenmac
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
