@@ -1,3 +1,8 @@
+config.load_autoconfig()
+
+c.window.hide_decoration = True
+c.content.fullscreen.window = True
+
 config.bind('gt', 'tab-next')
 config.bind('gT', 'tab-prev')
 
