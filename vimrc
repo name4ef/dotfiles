@@ -47,6 +47,8 @@ Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'vimwiki/vimwiki'
 let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
+let g:vimwiki_folding = ''
+
 Plugin 'tbabej/taskwiki'
 Plugin 'yegappan/grep'
 Plugin 'peterhoeg/vim-qml'
@@ -322,6 +324,7 @@ function! ToggleHiddenAll()
         set noshowcmd
         "set tabline=%
         set nonumber
+        set norelativenumber
         set colorcolumn=0
         "set lines+=1
     else
@@ -333,6 +336,7 @@ function! ToggleHiddenAll()
         set showcmd
         "set tabline=%!airline#extensions#tabline#get()
         set number
+        set relativenumber
         set colorcolumn=80
         "set lines-=1
     endif
