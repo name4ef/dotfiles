@@ -276,3 +276,10 @@ c.colors.tabs.pinned.selected.odd.bg    = base01
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # c.colors.webpage.bg = base00
+
+#c.fonts.statusbar = "14pt Hack"
+#c.fonts.tabs.selected = "14pt Hack"
+#c.fonts.tabs.unselected = "14pt Hack"
+c.fonts.default_size = "14pt"
+c.fonts.default_family = "Hack"
+c.zoom.default = 140
