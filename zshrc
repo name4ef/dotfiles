@@ -103,8 +103,8 @@ esac
 if [ $TERM = "screen-256color" ]; then
 	alias mc="TERM=xterm-256color mc"
 fi
-export PATH=$PATH:~/.bin:/usr/local/bin:~/.local/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/isdrill/aidriller/bin_release
+export PATH=~/.bin:~/.local/bin:/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=~/.local/lib:/usr/local/lib:$LD_LIBRARY_PATH
 #export PS1='\h:\W \u\$ '
 #export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
 export EDITOR=vim
