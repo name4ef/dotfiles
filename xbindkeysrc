@@ -33,22 +33,22 @@
 #"rxvt"
 #  Control + b:2 + Release
 
-# Control of mpd over mpc
-"mpc toggle"
+"pidof mpv && (echo 'keypress p' | socat - /tmp/mpvsocket) || mpc toggle"
   XF86AudioPlay
-"mpc toggle"
+"pidof mpv && (echo 'keypress p' | socat - /tmp/mpvsocket) || mpc toggle"
   m:0x0 + c:208
-"mpc toggle"
+"pidof mpv && (echo 'keypress p' | socat - /tmp/mpvsocket) || mpc toggle"
   m:0x0 + c:209
+
 "mpc next"
   XF86AudioNext
 "mpc prev"
   XF86AudioPrev
-"mpc stop"
+"pidof mpv && (echo 'keypress q' | socat - /tmp/mpvsocket) || mpc stop"
   XF86AudioStop
-"mpc volume +5"
+"pidof mpv && (echo 'keypress 0' | socat - /tmp/mpvsocket) || mpc volume +5"
   XF86AudioRaiseVolume
-"mpc volume -5"
+"pidof mpv && (echo 'keypress 9' | socat - /tmp/mpvsocket) || mpc volume -5"
   XF86AudioLowerVolume
-"mpc volume 0"
+"pidof mpv && (echo 'keypress m' | socat - /tmp/mpvsocket) || mpc volume 0"
   XF86AudioMute
