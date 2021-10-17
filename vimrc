@@ -20,7 +20,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Align'
 "Plugin 'tracwiki'
 Plugin 'nsmgr8/vitra'
-Plugin 'benmills/vimux'
 Plugin 'vim-scripts/taglist.vim'
 "Plugin 'tpope/vim-commentary' " Just /* */ comment only?
 "Plugin 'vimperator/vimperator.vim'
@@ -41,17 +40,16 @@ Plugin 'jonstoler/werewolf.vim'
 
 "Plugin 'edkolev/tmuxline.vim'
 Plugin 'Shougo/unite.vim'
-Plugin 'farseer90718/vim-taskwarrior'
+"Plugin 'farseer90718/vim-taskwarrior'
 "Plugin 'relaxedgreen'
-
+Plugin 'peterhoeg/vim-qml'
 Plugin 'vimwiki/vimwiki'
+
+Plugin 'tbabej/taskwiki'
 let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 let g:vimwiki_folding = ''
-
-Plugin 'tbabej/taskwiki'
-Plugin 'yegappan/grep'
-Plugin 'peterhoeg/vim-qml'
+" For taskwiki may be helpfull: pip3 --user install six tasklib
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -201,27 +199,28 @@ let NERDTreeHighlightCursorline = 1
 "
 " My key bindings
 "
-map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 map <F2> :TlistToggle<CR>
-map <F3> :Rgrep <cword> * <CR><CR>
-let Grep_Skip_Files = '*.bak *~ tags'
-let Grep_Skip_Dirs = 'doxygen'
 " switch between source and header files:
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F5> :silent make\|redraw!<CR>
 map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
-"map <F8> :run<CR>
-map <F8> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
-map <F9> :VimuxInterruptRunner<CR>
-map <Leader><Esc> :VimuxCloseRunner<CR>
-
 imap <F2> <C-R>=strftime("%H:%M")." "<CR>
 imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
 
+Plugin 'yegappan/grep'
+let Grep_Skip_Files = '*.bak *~ tags'
+let Grep_Skip_Dirs = 'doxygen'
+map <F3> :Rgrep <cword> * <CR><CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Vimux commands (past from :help vimux):
+" Vimux commands (past from :help vimux and edited):
 "
+Plugin 'benmills/vimux'
+let VimuxRunnerName="vo"
+let VimuxRunnerType="window"
+
 " Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 " Run command without sending a return
@@ -241,8 +240,20 @@ map <Leader>vs :VimuxInterruptRunner<CR>
 map <Leader>vc :VimuxClearRunnerHistory<CR>
 " Zoom the tmux runner page
 map <Leader>vz :VimuxZoomRunner<CR>
-
 map <Leader>vm :VimuxRunCommand("make run")<CR>
+
+map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
+map <F9> :VimuxInterruptRunner<CR>
+map <Leader><Esc> :VimuxCloseRunner<CR>
+
+" https://unix.stackexchange.com/questions/292460/how-terminal-emulators-handle-shiftfkeys
+map <Esc>[19;2~ <S-F8>
+map <F8> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
+if !exists('g:VimuxLastCommand')
+    let VimuxLastCommand = "make run"
+endif
+nnoremap <S-F8> :VimuxPromptCommand(VimuxLastCommand)<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -345,10 +356,6 @@ nnoremap <S-h> :call ToggleHiddenAll()<CR>
 " https://unix.stackexchange.com/questions/140898/vim-hide-status-line-in-the-bottom#140899
 
 set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
-
-" For taskwiki may be helpfull: pip3 --user install six tasklib
-let VimuxRunnerIndex="1:0.0"
-map <F8> :VimuxInterruptRunner<CR> :VimuxRunCommand("make run")<CR>
 
 " Disable (hide through color) '~' character at start of empty line
 highlight NonText ctermfg=bg
