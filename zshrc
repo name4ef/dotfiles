@@ -103,8 +103,9 @@ esac
 if [ $TERM = "screen-256color" ]; then
 	alias mc="TERM=xterm-256color mc"
 fi
-export PATH=~/.bin:~/.local/bin:/usr/local/bin:$PATH
+export PATH=/usr/lib/ccache/bin:~/.bin:~/.local/bin:/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=~/.local/lib:/usr/local/lib:$LD_LIBRARY_PATH
+export CCACHE_DIR="/var/cache/ccache"
 #export PS1='\h:\W \u\$ '
 #export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
 export EDITOR=vim
