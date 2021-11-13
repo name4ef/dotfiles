@@ -217,7 +217,7 @@ map <F3> :Rgrep <cword> * <CR><CR>
 "
 " Vimux commands (past from :help vimux and edited):
 "
-Plugin 'benmills/vimux'
+Plugin 'preservim/vimux'
 let VimuxRunnerName="vo"
 let VimuxRunnerType="window"
 
