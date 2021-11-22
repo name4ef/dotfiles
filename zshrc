@@ -79,6 +79,8 @@ ssh()
         tmux rename-window $1
         /usr/bin/ssh $1
         tmux set-option automatic-rename on
+    else
+        /usr/bin/ssh $1
     fi
 }
 
