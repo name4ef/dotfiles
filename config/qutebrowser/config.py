@@ -5,6 +5,8 @@ c.content.fullscreen.window = True
 
 config.bind('gt', 'tab-next')
 config.bind('gT', 'tab-prev')
+config.bind('<Ctrl-e>', 'scroll down')
+config.bind('<Ctrl-y>', 'scroll up')
 
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
