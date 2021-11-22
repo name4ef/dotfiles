@@ -3,7 +3,8 @@
 # Functions
 #
 
-todo() {
+todo()
+{
 	LANG=en_US.UTF-8
 	if [ -s NOTES ] && [ -s README ]; then
 		vim NOTES -c 'vsp README' -c 'sp TODO' -c 'winc l' -c 'sp ChangeLog' \
@@ -15,12 +16,14 @@ todo() {
 	fi
 }
 
-settitle() {
+settitle()
+{
 	#printf "\033k$1\033\\"
 	echo -ne "\033]0;$1"
 }
 
-workflow() {
+workflow()
+{
     CALC_STR="0"
 
     task workflow
@@ -31,7 +34,8 @@ workflow() {
     task calc $CALC_STR
 }
 
-task_info() {
+task_info()
+{
     IDS=`task +ACTIVE ids`
 
     if [ $IDS ]; then
@@ -39,7 +43,8 @@ task_info() {
     fi
 }
 
-precmd() {
+precmd()
+{
     printf '\033]2;%s\033\\' `hostname -f` # for restore of tmux's pane-title
 }
 
@@ -61,9 +66,20 @@ run_vs14()
     run_with_bat VS140COMNTOOLS "$@"
 }
 
-sdcv() {
+sdcv()
+{
     /usr/bin/sdcv --non-interactive $@ \
         | less --quit-if-one-screen --no-init
+}
+
+ssh()
+{
+    if [ ! -z $TMUX ]; then
+        tmux set-option automatic-rename off
+        tmux rename-window $1
+        /usr/bin/ssh $1
+        tmux set-option automatic-rename on
+    fi
 }
 
 alias rsync='rsync -a --info=progress2'
