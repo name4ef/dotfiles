@@ -75,9 +75,9 @@ sdcv()
 ssh()
 {
     if [ ! -z $TMUX ]; then
-        tmux set-option automatic-rename off
         tmux rename-window $1
         /usr/bin/ssh $1
+        tmux set-option automatic-rename off
         tmux set-option automatic-rename on
     else
         /usr/bin/ssh $1
