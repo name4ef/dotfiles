@@ -72,17 +72,21 @@ sdcv()
         | less --quit-if-one-screen --no-init
 }
 
-ssh()
-{
-    if [ ! -z $TMUX ]; then
-        tmux rename-window $1
-        /usr/bin/ssh $1
-        tmux set-option automatic-rename off
-        tmux set-option automatic-rename on
-    else
-        /usr/bin/ssh $1
-    fi
-}
+# TODO
+# - [ ] make possible work with more then one argument
+#       ex: ssh somehost -L 8081:localhost:80
+# - [ ] appending by tab for scp
+#ssh()
+#{
+#    if [ ! -z $TMUX ]; then
+#        tmux rename-window $1
+#        /usr/bin/ssh $1
+#        tmux set-option automatic-rename off
+#        tmux set-option automatic-rename on
+#    else
+#        /usr/bin/ssh $1
+#    fi
+#}
 
 alias rsync='rsync -a --info=progress2'
 XSEL=xsel
