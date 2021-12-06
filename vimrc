@@ -49,7 +49,7 @@ Plugin 'tbabej/taskwiki'
 let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 let g:vimwiki_folding = ''
-" For taskwiki may be helpfull: pip3 --user install six tasklib
+" For taskwiki may be helpfull: pip3 install --user six tasklib
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
