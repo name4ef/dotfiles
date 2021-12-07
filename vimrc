@@ -8,10 +8,7 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-"
-" For Vandle installation run:
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"
+" https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
@@ -72,15 +69,6 @@ call vundle#end()            " required
 "filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " Set color scheme
 "colorscheme pablo
@@ -96,21 +84,20 @@ filetype plugin on
 "
 colorscheme solarized
 set background=dark " value: light|dark
-@let g:solarized_termcolors = 256
+"let g:solarized_termcolors = 256
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#keymap#enabled = 0
-@"let g:airline_section_z  = '%3p%% %l/%L' "(percentage, line number, column number)
 let g:airline#extensions#whitespace#trailing_format = '[%s]'
-@if !exists('g:airline_symbols')
-@    let g:airline_symbols = {}
-@endif
-@let g:airline_symbols.linenr = ''
-@let g:airline_symbols.whitespace = ''
-@let g:airline_left_sep=' '
-@let g:airline_right_sep=' '
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.linenr = ''
+"let g:airline_symbols.whitespace = ''
+"let g:airline_left_sep=' '
+"let g:airline_right_sep=' '
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -133,12 +120,12 @@ set nowritebackup
 set noundofile
 
 set number relativenumber
-set colorcolumn=80
+set colorcolumn=75
 
-set encoding=utf-8                                  " set character translation encoding
-set termencoding=utf-8                              " set terminal encoding
-set fileencoding=utf-8                              " set save encoding
-set fileencodings=utf8,cp1251,koi8-r,cp866,ucs-2le  " set list on encoding sort by preference
+"set encoding=ascii
+set termencoding=utf-8
+set fileencoding=ascii
+set fileencodings=ascii,utf-8,cp1251,koi8-r,cp866,ucs-2le
 
 set cursorline " To highlight the current line use
 
@@ -166,20 +153,20 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 "
-@let rumap = 'йцукенгшщзхъфывапролджэёячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ'
-@let enmap = 'qwertyuiop[]asdfghjkl;''\zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>' 
-@let mapLen = strchars(rumap)
-@let i = 0
-@while i < mapLen
-@    let ruChar = matchstr(rumap, ".", byteidx(rumap, i))
-@    let enChar = enmap[i]
-@    "echo 'map '.ruChar.' '.enChar
-@    execute 'map '.ruChar.' '.enChar
-@    execute 'cmap '.ruChar.' '.enChar
-@    let i += 1
-@endwhile
-@map Ё \|
-@cmap Ё \|
+"let rumap = 'йцукенгшщзхъфывапролджэёячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ'
+"let enmap = 'qwertyuiop[]asdfghjkl;''\zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>' 
+"let mapLen = strchars(rumap)
+"let i = 0
+"while i < mapLen
+"    let ruChar = matchstr(rumap, ".", byteidx(rumap, i))
+"    let enChar = enmap[i]
+"    "echo 'map '.ruChar.' '.enChar
+"    execute 'map '.ruChar.' '.enChar
+"    execute 'cmap '.ruChar.' '.enChar
+"    let i += 1
+"endwhile
+"map Ё \|
+"cmap Ё \|
 
 " For changelog.vim
 let g:changelog_username="Efim Trivozhenko <name4ef@gmail.ru>"
@@ -195,10 +182,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 "let NERDTreeQuitOnOpen = 1
 let NERDTreeHighlightCursorline = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" My key bindings
-"
 map <F2> :TlistToggle<CR>
 " switch between source and header files:
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -213,10 +196,6 @@ let Grep_Skip_Files = '*.bak *~ tags'
 let Grep_Skip_Dirs = 'doxygen'
 map <F3> :Rgrep <cword> * <CR><CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Vimux commands (past from :help vimux and edited):
-"
 Plugin 'preservim/vimux'
 let VimuxRunnerName="vo"
 let VimuxRunnerType="window"
@@ -246,7 +225,6 @@ map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 map <F9> :VimuxInterruptRunner<CR>
 map <Leader><Esc> :VimuxCloseRunner<CR>
 
-" https://unix.stackexchange.com/questions/292460/how-terminal-emulators-handle-shiftfkeys
 map <Esc>[19;2~ <S-F8>
 map <F8> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 if !exists('g:VimuxLastCommand')
@@ -255,28 +233,23 @@ endif
 nnoremap <S-F8> :VimuxPromptCommand(VimuxLastCommand)<CR>
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " For enabling modeline (execute commands from editing file)
 " Example: /* vim: set ts=8 sw=4 tw=0 noet: */
-"
 set modeline
 set modelines=15 "lines at the beginning and end of the file are checked
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 set statusline=
-"set statusline+=%7*\[%n]                                  "buffernr
-set statusline+=%1*\ %<%F\                                "File+path
-"set statusline+=%2*\ %y\                                  "FileType
-"set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-"set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-"set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
-"set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highlight on?
-"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
-set statusline+=%8*\ %=\ %l/%L\                            "Rownumber/total
-"set statusline+=%9*\ col:%03c\                            "Colnr
-"set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+"set statusline+=%7*\[%n]
+set statusline+=%1*\ %<%F\
+"set statusline+=%2*\ %y\
+"set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}
+"set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\
+"set statusline+=%4*\ %{&ff}\
+"set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\
+"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\
+set statusline+=%8*\ %=\ %l/%L\
+"set statusline+=%9*\ col:%03c\
+"set statusline+=%0*\ \ %m%r%w\ %P\ \
 
 function! HighlightSearch()
     if &hls
@@ -297,8 +270,6 @@ hi User8 guifg=#ffffff  guibg=#5b7fbb
 hi User9 guifg=#ffffff  guibg=#810085
 hi User0 guifg=#ffffff  guibg=#094afe
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 "let g:lightline = { 
 "			\ 'colorscheme': 'gotham256',
 "			\ 'component': {
@@ -319,7 +290,7 @@ set softtabstop=4
 "nnoremap <C-C> :call PhpDocSingle()<CR>
 "vnoremap <C-C> :call PhpDocRange()<CR>
 
-"set laststatus=2   " Always show the statusline (for powerline)
+"set laststatus=2 " Always show the statusline (for powerline)
 
 set scrolloff=0
 
@@ -353,7 +324,6 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
-" https://unix.stackexchange.com/questions/140898/vim-hide-status-line-in-the-bottom#140899
 
 set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
