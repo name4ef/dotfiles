@@ -1,3 +1,6 @@
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 ################################################################################
 #
 # Functions
@@ -131,18 +134,17 @@ export CCACHE_DIR="/var/cache/ccache"
 #export PS1='\h:\W \u\$ '
 #export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
 export EDITOR=vim
-if [ `whoami` = "root" ]; then
-	#export PS1=$'%~\e[0;31m#\e[0m ' # TODO
-	export PS1=$'%~# '
-else
-	export PS1='%~: '
-fi
 export TZ="Asia/Tomsk"
 setopt PROMPT_SUBST
 autoload -U colors && colors
-#PROMPT='`echo -e "\033[$LINES;0f";task_info`%~: '
-PROMPT='`task_info`%~: '
-#PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+
+if [ `whoami` = "root" ]; then
+	export PS1=$'%~: `printf ${RED}`#`printf ${NC}` '
+else
+    export PS1='`task_info`%~: '
+fi
+PROMPT=$PS1
+
 TMOUT=60
 
 TRAPALRM() {
