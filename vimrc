@@ -5,10 +5,7 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
@@ -16,19 +13,19 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'Align'
 "Plugin 'tracwiki'
-Plugin 'nsmgr8/vitra'
+"Plugin 'nsmgr8/vitra'
 Plugin 'vim-scripts/taglist.vim'
 "Plugin 'tpope/vim-commentary' " Just /* */ comment only?
 "Plugin 'vimperator/vimperator.vim'
 Plugin 'aklt/plantuml-syntax'
 
 " colorschems:
-Plugin 'vim-scripts/xoria256.vim'
+"Plugin 'vim-scripts/xoria256.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'whatyouhide/vim-gotham'
+"Plugin 'whatyouhide/vim-gotham'
 "Plugin 'vim-scripts/light2011'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'jonstoler/werewolf.vim'
+"Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'jonstoler/werewolf.vim'
 
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'stephenmckinney/vim-solarized-powerline'
@@ -36,7 +33,7 @@ Plugin 'jonstoler/werewolf.vim'
 "let g:Powerline_colorscheme='solarized256_dark'
 
 "Plugin 'edkolev/tmuxline.vim'
-Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite.vim'
 "Plugin 'farseer90718/vim-taskwarrior'
 "Plugin 'relaxedgreen'
 Plugin 'peterhoeg/vim-qml'
@@ -47,44 +44,6 @@ let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 let g:vimwiki_folding = ''
 " For taskwiki may be helpfull: pip3 install --user six tasklib
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-"filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-filetype plugin on
-
-" Set color scheme
-"colorscheme pablo
-"colorscheme darkblue
-"colorscheme delek
-"colorscheme desert
-"colorscheme xoria256
-"colorscheme gotham256
-"
-"colorscheme PaperColor
-"set background=dark " value: light|dark
-"set t_Co=256
-"
-colorscheme solarized
-set background=dark " value: light|dark
-"let g:solarized_termcolors = 256
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -113,6 +72,37 @@ Plugin 'gregsexton/gitv'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
+
+Plugin 'yegappan/grep'
+let Grep_Skip_Files = '*.bak *~ tags'
+let Grep_Skip_Dirs = 'doxygen'
+map <F3> :Rgrep <cword> * <CR><CR>
+
+Plugin 'preservim/vimux'
+let VimuxRunnerName="vo"
+let VimuxRunnerType="window"
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+"filetype plugin indent on   " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
+
+" Set color scheme
+"colorscheme pablo
+"colorscheme darkblue
+"colorscheme delek
+"colorscheme desert
+"colorscheme xoria256
+"colorscheme gotham256
+"
+"colorscheme PaperColor
+"set background=dark " value: light|dark
+"set t_Co=256
+"
+colorscheme solarized
+set background=dark " value: light|dark
+"let g:solarized_termcolors = 256
 
 " Disable automatic creating backup files (filename~)
 set nobackup
@@ -190,15 +180,6 @@ map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
 imap <F2> <C-R>=strftime("%H:%M")." "<CR>
 imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
-
-Plugin 'yegappan/grep'
-let Grep_Skip_Files = '*.bak *~ tags'
-let Grep_Skip_Dirs = 'doxygen'
-map <F3> :Rgrep <cword> * <CR><CR>
-
-Plugin 'preservim/vimux'
-let VimuxRunnerName="vo"
-let VimuxRunnerType="window"
 
 " Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
