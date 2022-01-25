@@ -44,6 +44,7 @@ let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 let g:vimwiki_folding = ''
 " For taskwiki may be helpfull: pip3 install --user six tasklib
+Plugin 'powerman/vim-plugin-AnsiEsc' " for colors in charts
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
