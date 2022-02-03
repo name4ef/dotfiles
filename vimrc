@@ -278,7 +278,7 @@ set softtabstop=4
 
 set scrolloff=0
 
-" Hide statusline by Shift + H
+" Makes interface minimalist by Shift + H
 let s:hidden_all = 0
 function! ToggleHiddenAll()
     if s:hidden_all  == 0
@@ -293,6 +293,8 @@ function! ToggleHiddenAll()
         set norelativenumber
         set colorcolumn=0
         "set lines+=1
+        set signcolumn=no
+        set nocursorline
     else
         let s:hidden_all = 0
         AirlineToggle
@@ -305,6 +307,8 @@ function! ToggleHiddenAll()
         set relativenumber
         set colorcolumn=80
         "set lines-=1
+        set signcolumn=yes
+        set cursorline
     endif
 endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
