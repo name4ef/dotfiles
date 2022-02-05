@@ -15,6 +15,14 @@ urgency.blocking.coefficient=0.1
 urgency.blocked.coefficient=-0.1
 #urgency.uda.priority.H.coefficient=10
 
+# for get columns for existing report useful this:
+# task show active
+report.tmux.description = Print active task for tmux statusline
+report.tmux.columns = start.age,description,due.relative
+report.tmux.filter = +ACTIVE
+report.tmux.dateformat = H:N
+report.tmux.verbose = nothing
+
 default.command=next
 
 max_active_tasks=1
