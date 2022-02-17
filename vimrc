@@ -80,8 +80,8 @@ let Grep_Skip_Dirs = 'doxygen'
 map <F3> :Rgrep <cword> * <CR><CR>
 
 Plugin 'preservim/vimux'
-let VimuxRunnerName="vo"
-let VimuxRunnerType="window"
+"let VimuxRunnerName="vo"
+"let VimuxRunnerType="window"
 
 Plugin 'ap/vim-css-color'
 
@@ -212,7 +212,7 @@ map <Leader><Esc> :VimuxCloseRunner<CR>
 map <Esc>[19;2~ <S-F8>
 map <F8> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 if !exists('g:VimuxLastCommand')
-    let VimuxLastCommand = "make run"
+    let VimuxLastCommand = "make"
 endif
 nnoremap <S-F8> :VimuxPromptCommand(VimuxLastCommand)<CR>
 
@@ -317,3 +317,11 @@ set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
 " Disable (hide through color) '~' character at start of empty line
 highlight NonText ctermfg=bg
+
+function HighlightNonAscii()
+	syntax match nonascii "[^\x00-\x7f]" 
+				\ containedin=cComment,vimLineComment,pythonComment |
+	highlight nonascii 
+				\ cterm=underline ctermfg=red ctermbg=none term=underline
+endfunction
+autocmd BufNewFile,BufReadPost * call HighlightNonAscii()
