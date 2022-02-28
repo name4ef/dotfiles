@@ -318,10 +318,14 @@ set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " Disable (hide through color) '~' character at start of empty line
 highlight NonText ctermfg=bg
 
+syntax match nonascii "[^\x00-\x7f]" 
+            \ containedin=cComment,vimLineComment,pythonComment |
 function HighlightNonAscii()
-	syntax match nonascii "[^\x00-\x7f]" 
-				\ containedin=cComment,vimLineComment,pythonComment |
 	highlight nonascii 
 				\ cterm=underline ctermfg=red ctermbg=none term=underline
+endfunction
+function NoHighlightNonAscii()
+	highlight nonascii 
+				\ cterm=none ctermfg=none ctermbg=none term=none
 endfunction
 autocmd BufNewFile,BufReadPost * call HighlightNonAscii()
