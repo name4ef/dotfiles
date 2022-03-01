@@ -22,6 +22,9 @@ report.tmux.columns = start.age,description,due.relative
 report.tmux.filter = +ACTIVE
 report.tmux.dateformat = H:N
 report.tmux.verbose = nothing
+report.vim.description = Preparing task for insert in Vim
+report.vim.columns = description.count,uuid.short
+report.vim.verbose = nothing
 
 default.command=next
 
