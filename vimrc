@@ -175,9 +175,23 @@ let g:html_indent_inctags = "html,body,head,tbody"
 "let NERDTreeQuitOnOpen = 1
 let NERDTreeHighlightCursorline = 1
 
+" Switch editing between .c* and .h* files (and more).
+" Since .h file can be in a different dir, call find.
+" https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
+"set path=.,,..,../..,./*,./*/*,../*,~/,~/**,/usr/include/*
+function! SourceHeaderToggle()
+	if match(expand("%"),'\.c') > 0
+		let s:flipname = substitute(expand("%"),'\.c\(.*\)','.h\1',"")
+		execute ":open " s:flipname
+	elseif match(expand("%"),"\\.h") > 0
+		let s:flipname = substitute(expand("%"),'\.h\(.*\)','.c\1',"")
+		execute ":open " s:flipname
+	endif
+endfun
+
 map <F2> :TlistToggle<CR>
 " switch between source and header files:
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+map <F4> :call SourceHeaderToggle()<CR>
 map <F5> :silent make\|redraw!<CR>
 map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
@@ -205,7 +219,6 @@ map <Leader>vc :VimuxClearRunnerHistory<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 map <Leader>vm :VimuxRunCommand("make run")<CR>
 
-map <F1> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 map <F9> :VimuxInterruptRunner<CR>
 map <Leader><Esc> :VimuxCloseRunner<CR>
 
