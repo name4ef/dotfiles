@@ -780,11 +780,11 @@ mouse:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: Key0,               mods: Control|Shift,              command:
+  - { key: Key0,               mods: Control,                    command:
     {program: "bash", args: ["-c", "~/.bin/glasses 0"]} }
-  - { key: Key9,               mods: Control|Shift,              command:
+  - { key: Key9,               mods: Control,                    command:
     {program: "bash", args: ["-c", "~/.bin/glasses 9"]} }
-  - { key: Key8,               mods: Control|Shift,              command:
+  - { key: Key8,               mods: Control,                    command:
     {program: "bash", args: ["-c", "~/.bin/glasses 8"]} }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
