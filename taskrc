@@ -18,7 +18,7 @@ urgency.blocked.coefficient=-0.1
 # for get columns for existing report useful this:
 # task show active
 report.tmux.description = Print active task for tmux statusline
-report.tmux.columns = start.age,description,due.relative
+report.tmux.columns = start.age,description
 report.tmux.filter = +ACTIVE
 report.tmux.dateformat = H:N
 report.tmux.verbose = nothing
@@ -32,3 +32,4 @@ max_active_tasks=1
 #journal.time=on
 
 include ~/.taskrc.local
+news.version=2.6.0
