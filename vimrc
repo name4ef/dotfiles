@@ -84,6 +84,7 @@ Plugin 'preservim/vimux'
 "let VimuxRunnerType="window"
 
 Plugin 'ap/vim-css-color'
+Plugin 'preservim/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -195,6 +196,7 @@ map <F4> :call SourceHeaderToggle()<CR>
 map <F5> :silent make\|redraw!<CR>
 map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
+map <F10> :TagbarToggle(f)<CR>
 imap <F2> <C-R>=strftime("%H:%M")." "<CR>
 imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
 
