@@ -58,7 +58,7 @@ let g:airline#extensions#whitespace#trailing_format = '[%s]'
 "let g:airline_symbols.whitespace = ''
 "let g:airline_left_sep=' '
 "let g:airline_right_sep=' '
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
@@ -148,7 +148,7 @@ set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 "
 "let rumap = 'йцукенгшщзхъфывапролджэёячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ'
-"let enmap = 'qwertyuiop[]asdfghjkl;''\zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>' 
+"let enmap = 'qwertyuiop[]asdfghjkl;''\zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>'
 "let mapLen = strchars(rumap)
 "let i = 0
 "while i < mapLen
@@ -181,13 +181,13 @@ let NERDTreeHighlightCursorline = 1
 " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
 "set path=.,,..,../..,./*,./*/*,../*,~/,~/**,/usr/include/*
 function! SourceHeaderToggle()
-	if match(expand("%"),'\.c') > 0
-		let s:flipname = substitute(expand("%"),'\.c\(.*\)','.h\1',"")
-		execute ":open " s:flipname
-	elseif match(expand("%"),"\\.h") > 0
-		let s:flipname = substitute(expand("%"),'\.h\(.*\)','.c\1',"")
-		execute ":open " s:flipname
-	endif
+    if match(expand("%"),'\.c') > 0
+        let s:flipname = substitute(expand("%"),'\.c\(.*\)','.h\1',"")
+        execute ":open " s:flipname
+    elseif match(expand("%"),"\\.h") > 0
+        let s:flipname = substitute(expand("%"),'\.h\(.*\)','.c\1',"")
+        execute ":open " s:flipname
+    endif
 endfun
 
 map <F2> :TlistToggle<CR>
@@ -237,19 +237,6 @@ nnoremap <S-F8> :VimuxPromptCommand(VimuxLastCommand)<CR>
 set modeline
 set modelines=15 "lines at the beginning and end of the file are checked
 
-set statusline=
-"set statusline+=%7*\[%n]
-set statusline+=%1*\ %<%F\
-"set statusline+=%2*\ %y\
-"set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}
-"set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\
-"set statusline+=%4*\ %{&ff}\
-"set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\
-"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\
-set statusline+=%8*\ %=\ %l/%L\
-"set statusline+=%9*\ col:%03c\
-"set statusline+=%0*\ \ %m%r%w\ %P\ \
-
 function! HighlightSearch()
     if &hls
         return 'H'
@@ -269,12 +256,12 @@ hi User8 guifg=#ffffff  guibg=#5b7fbb
 hi User9 guifg=#ffffff  guibg=#810085
 hi User0 guifg=#ffffff  guibg=#094afe
 
-"let g:lightline = { 
-"			\ 'colorscheme': 'gotham256',
-"			\ 'component': {
-"			\   'lineinfo': "%{printf('%d/%d', line('.'),  line('$'))}",
-"			\ },
-"			\ }
+"let g:lightline = {
+"            \ 'colorscheme': 'gotham256',
+"            \ 'component': {
+"            \   'lineinfo': "%{printf('%d/%d', line('.'),  line('$'))}",
+"            \ },
+"            \ }
 "
 " Man pages viewer
 runtime ftplugin/man.vim
@@ -333,14 +320,14 @@ set listchars=eol:$,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " Disable (hide through color) '~' character at start of empty line
 highlight NonText ctermfg=bg
 
-syntax match nonascii "[^\x00-\x7f]" 
+syntax match nonascii "[^\x00-\x7f]"
             \ containedin=cComment,vimLineComment,pythonComment |
 function HighlightNonAscii()
-	highlight nonascii 
-				\ cterm=underline ctermfg=red ctermbg=none term=underline
+    highlight nonascii
+                \ cterm=underline ctermfg=red ctermbg=none term=underline
 endfunction
 function NoHighlightNonAscii()
-	highlight nonascii 
-				\ cterm=none ctermfg=none ctermbg=none term=none
+    highlight nonascii
+                \ cterm=none ctermfg=none ctermbg=none term=none
 endfunction
 autocmd BufNewFile,BufReadPost * call HighlightNonAscii()
