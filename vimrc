@@ -43,6 +43,7 @@ Plugin 'tbabej/taskwiki'
 let taskwiki_disable_concealcursor="yes"
 let g:taskwiki_sort_order="urgency-"
 let g:vimwiki_folding = ''
+let g:taskwiki_sort_orders={"D": "entered+"}
 " For taskwiki may be helpfull: pip3 install --user six tasklib
 Plugin 'powerman/vim-plugin-AnsiEsc' " for colors in charts
 
@@ -50,7 +51,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#keymap#enabled = 0
-let g:airline#extensions#whitespace#trailing_format = '[%s]'
 "if !exists('g:airline_symbols')
 "    let g:airline_symbols = {}
 "endif
@@ -190,13 +190,13 @@ function! SourceHeaderToggle()
     endif
 endfun
 
-map <F2> :TlistToggle<CR>
+map <F2> :TagbarToggle(f)<CR>
 " switch between source and header files:
 map <F4> :call SourceHeaderToggle()<CR>
 map <F5> :silent make\|redraw!<CR>
 map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
-map <F10> :TagbarToggle(f)<CR>
+map <F12> :set invlist<CR>
 imap <F2> <C-R>=strftime("%H:%M")." "<CR>
 imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
 
