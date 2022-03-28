@@ -1,0 +1,2 @@
+ACTION=="add", SUBSYSTEM=="input" ENV{ID_INPUT_KEY}=="1", \
+       RUN+="/bin/su -c /home/efim/.xsession.setxkbmap - efim" OWNER="efim"
