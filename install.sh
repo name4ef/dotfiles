@@ -2,8 +2,9 @@
 
 echo "Installation of dotfiles..."
 
-files="vimrc zshrc Xresources tmux.conf xsession minttyrc ncmpcpp mpdconf \
-    xbindkeysrc muttrc taskrc config alacritty.yml"
+files="vimrc zshrc Xresources tmux.conf xsession xsession.setxkbmap \
+    minttyrc ncmpcpp mpdconf xbindkeysrc muttrc taskrc config \
+    alacritty.yml"
 
 PWD=$(pwd)
 
