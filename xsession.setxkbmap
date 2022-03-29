@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+DISPLAY=:0 /usr/bin/setxkbmap -layout us,ru -option grp:caps_toggle
+
