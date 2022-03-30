@@ -83,6 +83,7 @@ Plugin 'preservim/vimux'
 
 Plugin 'ap/vim-css-color'
 Plugin 'preservim/tagbar'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
