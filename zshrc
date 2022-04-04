@@ -54,6 +54,11 @@ sdcv()
         | less --quit-if-one-screen --no-init
 }
 
+precmd ()
+{
+    printf "\033]0;%s\007" $(hostname)
+}
+
 # TODO
 # - [ ] make possible work with more then one argument
 #       ex: ssh somehost -L 8081:localhost:80
@@ -114,8 +119,6 @@ export CCACHE_DIR="/var/cache/ccache"
 export EDITOR=vim
 export TZ="Asia/Tomsk"
 setopt PROMPT_SUBST
-
-printf "\033]0;%s\007" $(hostname)
 
 if [ `whoami` = "root" ]; then
     # TODO change red to bright
