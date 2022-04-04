@@ -8,29 +8,29 @@ autoload -Uz compinit
 
 todo()
 {
-	LANG=en_US.UTF-8
-	if [ -s NOTES ] && [ -s README ]; then
-		vim NOTES \
+    LANG=en_US.UTF-8
+    if [ -s NOTES ] && [ -s README ]; then
+        vim NOTES \
             -c 'vsp README' \
             -c 'sp TODO' \
             -c 'winc l' \
             -c 'sp ChangeLog' \
-			-c 'winc h'
-	elif [ -s NOTES ]; then
-		vim NOTES \
+            -c 'winc h'
+    elif [ -s NOTES ]; then
+        vim NOTES \
             -c 'vsp TODO' \
             -c 'winc l' \
             -c 'sp ChangeLog' \
             -c 'winc h'
-	else
-		vim -O TODO ChangeLog
-	fi
+    else
+        vim -O TODO ChangeLog
+    fi
 }
 
 settitle()
 {
-	#printf "\033k$1\033\\"
-	echo -ne "\033]0;$1"
+    #printf "\033k$1\033\\"
+    echo -ne "\033]0;$1"
 }
 
 workflow()
@@ -38,9 +38,9 @@ workflow()
     CALC_STR="0"
 
     task workflow
-    for UUID in `task end.after:som-1m status:completed uuids`; do 
+    for UUID in `task end.after:som-1m status:completed uuids`; do
         CALC_STR="$CALC_STR + $(task calc $UUID.totalactivetime)"
-    done 
+    done
     echo $CALC_STR
     task calc $CALC_STR
 }
@@ -52,6 +52,12 @@ task_info()
     if [ $IDS ]; then
         echo "$IDS "
     fi
+}
+
+set_hostname()
+{
+    printf "\033]0;%s\007" $(hostname)
+    #echo -en "\033]0;$(hostname)\007"
 }
 
 sdcv()
@@ -88,14 +94,14 @@ fi
 # copy/paste selected text to system clipboard
 function vi-yank-xclip
 {
-	zle vi-yank
-	echo "$CUTBUFFER" | $XSEL
+    zle vi-yank
+    echo "$CUTBUFFER" | $XSEL
 }
 
 function vi-put-after-xclip
 {
-	CUTBUFFER="$(pbpaste)"
-	zle vi-put-after
+    CUTBUFFER="$(pbpaste)"
+    zle vi-put-after
 }
 
 zle -N vi-yank-xclip
@@ -108,10 +114,10 @@ bindkey -M vicmd 'p' vi-put-after-xclip
 
 #export TERM=xterm-256color
 case "$TERM" in
-	xterm*) TERM=xterm-256color
-esac 
+    xterm*) TERM=xterm-256color
+esac
 if [ $TERM = "screen-256color" ]; then
-	alias mc="TERM=xterm-256color mc"
+    alias mc="TERM=xterm-256color mc"
 fi
 export PATH=/usr/lib/ccache/bin:~/.bin:~/.local/bin:/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=~/.local/lib:/usr/local/lib:$LD_LIBRARY_PATH
@@ -124,7 +130,7 @@ setopt PROMPT_SUBST
 
 if [ `whoami` = "root" ]; then
     # TODO change red to bright
-	export PS1=$'%~: %{$fg[red]%}#%{$reset_color%} '
+    export PS1=$'%~: %{$fg[red]%}#%{$reset_color%} '
 else
     export PS1='`task_info`%~: '
 fi
