@@ -27,12 +27,6 @@ todo()
     fi
 }
 
-settitle()
-{
-    #printf "\033k$1\033\\"
-    echo -ne "\033]0;$1"
-}
-
 workflow()
 {
     CALC_STR="0"
@@ -52,12 +46,6 @@ task_info()
     if [ $IDS ]; then
         echo "$IDS "
     fi
-}
-
-set_hostname()
-{
-    printf "\033]0;%s\007" $(hostname)
-    #echo -en "\033]0;$(hostname)\007"
 }
 
 sdcv()
@@ -123,10 +111,11 @@ export PATH=/usr/lib/ccache/bin:~/.bin:~/.local/bin:/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=~/.local/lib:/usr/local/lib:$LD_LIBRARY_PATH
 export CCACHE_DIR="/var/cache/ccache"
 #export PS1='\h:\W \u\$ '
-#export PROMPT_COMMAND='$(settitle $HOST:$PWD)'
 export EDITOR=vim
 export TZ="Asia/Tomsk"
 setopt PROMPT_SUBST
+
+printf "\033]0;%s\007" $(hostname)
 
 if [ `whoami` = "root" ]; then
     # TODO change red to bright
