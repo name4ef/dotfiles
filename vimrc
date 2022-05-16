@@ -196,8 +196,8 @@ map <F5> :silent make\|redraw!<CR>
 map <F6> :NERDTreeToggle<CR>
 map <F7> :set spelllang=ru spell<CR>
 map <F12> :set invlist<CR>
-imap <F2> <C-R>=strftime("%H:%M")." "<CR>
-imap <F3> <C-R>=strftime("%d.%m.%y")." "<CR>
+imap <F2> <C-R>=strftime("%H:%M")<CR>
+imap <F3> <C-R>=strftime("%d.%m.%y")<CR>
 
 " Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
