@@ -85,23 +85,20 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # copy/paste selected text to system clipboard
-function vi-yank-xclip
-{
-    zle vi-yank
-    echo "$CUTBUFFER" | $XSEL
-}
-
-function vi-put-after-xclip
-{
-    CUTBUFFER="$(pbpaste)"
-    zle vi-put-after
-}
-
-zle -N vi-yank-xclip
-zle -N vi-put-after-xclip
-
-bindkey -M vicmd 'y' vi-yank-xclip
-bindkey -M vicmd 'p' vi-put-after-xclip
+#function vi-yank-xclip
+#{
+#    zle vi-yank
+#    echo "$CUTBUFFER" | $XSEL
+#}
+#function vi-put-after-xclip
+#{
+#    CUTBUFFER="$(pbpaste)"
+#    zle vi-put-after
+#}
+#zle -N vi-yank-xclip
+#zle -N vi-put-after-xclip
+#bindkey -M vicmd 'y' vi-yank-xclip
+#bindkey -M vicmd 'p' vi-put-after-xclip
 
 ##########################################################################
 
@@ -188,6 +185,7 @@ alias twm_work='timew month isdrill'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
+alias cal='cal --monday'
 
 bindkey '^R' history-incremental-search-backward
 
