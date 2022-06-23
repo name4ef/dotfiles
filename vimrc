@@ -105,7 +105,7 @@ filetype plugin on
 "
 colorscheme solarized
 set background=dark " value: light|dark
-"let g:solarized_termcolors = 256
+set t_Co=256
 
 " Disable automatic creating backup files (filename~)
 set nobackup
