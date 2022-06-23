@@ -146,12 +146,12 @@ bindkey '^N' down-history
 
 setopt rmstarsilent # disable confirmation when removing through `rm -rf`
 
-# https://github.com/benley/solarized-termcolor-osc4.git
-SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
-if [ -f $SOLARIZED ] && [ -z ${SSH_CLIENT+x} ] && (( $SHLVL == 1 )); then
-    source $SOLARIZED
-    cset 7 $base1
-fi
+## https://github.com/benley/solarized-termcolor-osc4.git
+#SOLARIZED=~/dev/solarized-termcolor-osc4/solarized.sh
+#if [ -f $SOLARIZED ] && [ -z ${SSH_CLIENT+x} ] && (( $SHLVL == 1 )); then
+#    source $SOLARIZED
+#    cset 7 $base1
+#fi
 
 if [ `uname` = "Darwin" ]; then
     eval `gdircolors ~/.dotfiles/dircolors.solarized-dark`
