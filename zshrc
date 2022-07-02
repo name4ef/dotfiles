@@ -185,7 +185,9 @@ alias twm_work='timew month isdrill'
 alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
-alias cal='cal --monday'
+if [ ! `uname` = "Darwin" ]; then
+    alias cal='cal --monday'
+fi
 
 bindkey '^R' history-incremental-search-backward
 
