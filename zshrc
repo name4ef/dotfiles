@@ -186,6 +186,7 @@ alias ruw='wikipedia2text -l ru -p -X "-cols $COLUMNS" $*'
 alias enw='wikipedia2text -l en -p -X "-cols $COLUMNS" $*'
 alias cl='run_vs14 cl $*'
 alias cal='cal --monday'
+alias task_switch='task +ACTIVE stop; task $1 start'
 
 bindkey '^R' history-incremental-search-backward
 
