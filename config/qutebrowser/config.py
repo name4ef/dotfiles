@@ -286,3 +286,6 @@ c.colors.tabs.pinned.selected.odd.bg    = base01
 c.fonts.default_size = "12pt"
 c.fonts.default_family = "Hack"
 c.zoom.default = 125
+c.colors.webpage.bg = base00
+#c.url.start_pages = "about:blank"
+c.url.default_page = "about:blank"
