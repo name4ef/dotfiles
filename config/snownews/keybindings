@@ -30,8 +30,8 @@ open url:o
 open item url in overview:O
 page up:b
 page down: 
-top:g
-bottom:G
+#top:g
+#bottom:G
 enter:l
 show new headlines:H
 help menu:h
