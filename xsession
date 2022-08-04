@@ -23,13 +23,17 @@ if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
-# Fix problems with JDK versions and other broken programs assuming a 
+# Fix problems with JDK versions and other broken programs assuming a
 # reparenting window manager for instance
 wmname LG3D
 #export AWT_TOOLKIT=MToolkit
 
 # Fix blank java window (android studio)
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+if [ -x $HOME/.xsession.$(hostname) ]; then
+    $HOME/.xsession.$(hostname)
+fi
 
 [[ -x `which unclutter` ]] && unclutter -idle 2 -grab -root &
 [[ -x `which xbindkeys` ]] && xbindkeys
