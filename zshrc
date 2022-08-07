@@ -48,9 +48,12 @@ workflow()
 task_info()
 {
     IDS=`task +ACTIVE ids`
+    TIMEW=`timew | grep Total | rev | cut -d " " -f 1 | rev`
 
     if [ $IDS ]; then
         echo "$IDS "
+    elif [ $TIMEW ]; then
+        echo "$TIMEW "
     fi
 }
 
