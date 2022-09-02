@@ -1,8 +1,9 @@
 display_bitrate = "yes"
-titles_visibility = "no"
+#titles_visibility = "no"
 enable_window_title = "no"
 playlist_shorten_total_times = "yes"
 playlist_show_remaining_time = yes
+allow_for_physical_item_deletion = "yes"
 
 #progressbar_look = " •·"
 #progressbar_look = "▉▉▉"
