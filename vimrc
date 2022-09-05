@@ -112,7 +112,7 @@ set nobackup
 set nowritebackup
 set noundofile
 
-set number relativenumber
+set relativenumber
 set colorcolumn=75
 
 "set encoding=ascii
