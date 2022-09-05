@@ -290,7 +290,6 @@ function! ToggleHiddenAll()
         set laststatus=0
         set noshowcmd
         "set tabline=%
-        set nonumber
         set norelativenumber
         set colorcolumn=0
         "set lines+=1
@@ -304,7 +303,6 @@ function! ToggleHiddenAll()
         set laststatus=2
         set showcmd
         "set tabline=%!airline#extensions#tabline#get()
-        set number
         set relativenumber
         set colorcolumn=80
         "set lines-=1
