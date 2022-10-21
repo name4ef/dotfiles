@@ -21,11 +21,13 @@ Plugin 'aklt/plantuml-syntax'
 
 " colorschems:
 "Plugin 'vim-scripts/xoria256.vim'
-Plugin 'altercation/vim-colors-solarized'
 "Plugin 'whatyouhide/vim-gotham'
 "Plugin 'vim-scripts/light2011'
 "Plugin 'NLKNguyen/papercolor-theme'
 "Plugin 'jonstoler/werewolf.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+let g:solarized_underline = 0
 
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'stephenmckinney/vim-solarized-powerline'

@@ -176,7 +176,7 @@ c.colors.prompts.selected.bg = base02
 c.colors.statusbar.normal.fg = base0B
 
 # Background color of the statusbar.
-c.colors.statusbar.normal.bg = base00
+c.colors.statusbar.normal.bg = base01
 
 # Foreground color of the statusbar in insert mode.
 c.colors.statusbar.insert.fg = base00
@@ -206,7 +206,7 @@ c.colors.statusbar.command.bg = base00
 c.colors.statusbar.command.private.fg = base05
 
 # Background color of the statusbar in private browsing + command mode.
-c.colors.statusbar.command.private.bg = base00
+c.colors.statusbar.command.private.bg = base01
 
 # Foreground color of the statusbar in caret mode.
 c.colors.statusbar.caret.fg = base00
@@ -258,23 +258,24 @@ c.colors.tabs.indicator.error = base08
 c.colors.tabs.odd.fg                    = base04
 c.colors.tabs.even.fg                   = base04
 
-c.colors.tabs.selected.odd.fg           = base08
-c.colors.tabs.selected.even.fg          = base08
+c.colors.tabs.selected.odd.fg           = base06
+c.colors.tabs.selected.even.fg          = base06
 
 c.colors.tabs.pinned.even.fg            = base0A
 c.colors.tabs.pinned.odd.fg             = base0A
 c.colors.tabs.pinned.selected.even.fg   = base0A
 c.colors.tabs.pinned.selected.odd.fg    = base0A
 
-c.colors.tabs.odd.bg                    = base00
-c.colors.tabs.even.bg                   = base00
+c.colors.tabs.odd.bg                    = base01
+c.colors.tabs.even.bg                   = base01
+
 c.colors.tabs.pinned.even.bg            = base00
 c.colors.tabs.pinned.odd.bg             = base00
 
-c.colors.tabs.selected.odd.bg           = base01
-c.colors.tabs.selected.even.bg          = base01
-c.colors.tabs.pinned.selected.even.bg   = base01
-c.colors.tabs.pinned.selected.odd.bg    = base01
+c.colors.tabs.selected.odd.bg           = base02
+c.colors.tabs.selected.even.bg          = base02
+c.colors.tabs.pinned.selected.even.bg   = base02
+c.colors.tabs.pinned.selected.odd.bg    = base02
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
