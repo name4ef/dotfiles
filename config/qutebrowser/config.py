@@ -9,6 +9,9 @@ config.bind('gT', 'tab-prev')
 config.bind('gf', 'view-source --pygments')
 config.bind('<Ctrl-e>', 'scroll down')
 config.bind('<Ctrl-y>', 'scroll up')
+config.bind(',d', 'config-cycle content.user_stylesheets ' \
+        '~/dev/solarized-everything-css/css/solarized-dark/' \
+        'solarized-dark-all-sites.css ""')
 
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
