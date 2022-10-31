@@ -6,6 +6,7 @@ c.tabs.show = "multiple"
 
 config.bind('gt', 'tab-next')
 config.bind('gT', 'tab-prev')
+config.bind('gf', 'view-source --pygments')
 config.bind('<Ctrl-e>', 'scroll down')
 config.bind('<Ctrl-y>', 'scroll up')
 
@@ -290,3 +291,6 @@ c.zoom.default = 125
 c.colors.webpage.bg = base00
 #c.url.start_pages = "about:blank"
 c.url.default_page = "about:blank"
+c.content.user_stylesheets = \
+        "~/dev/solarized-everything-css/css/solarized-dark/" \
+        "solarized-dark-all-sites.css"
