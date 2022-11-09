@@ -1,22 +1,8 @@
 config.load_autoconfig()
 
-c.window.hide_decoration = True
-c.content.fullscreen.window = True
-c.tabs.show = "multiple"
-
-config.bind('gt', 'tab-next')
-config.bind('gT', 'tab-prev')
-config.bind('gf', 'view-source --pygments')
-config.bind('<Ctrl-e>', 'scroll down')
-config.bind('<Ctrl-y>', 'scroll up')
-config.bind(',d', 'config-cycle content.user_stylesheets ' \
-        '~/dev/solarized-everything-css/css/solarized-dark/' \
-        'solarized-dark-all-sites.css ""')
-
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
 # Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub)
-
 base00 = "#002b36"
 base01 = "#073642"
 base02 = "#586e75"
@@ -33,6 +19,37 @@ base0C = "#2aa198"
 base0D = "#268bd2"
 base0E = "#6c71c4"
 base0F = "#d33682"
+
+c.window.hide_decoration = True
+c.content.fullscreen.window = True
+c.tabs.show = "multiple"
+#c.fonts.statusbar = "14pt Hack"
+#c.fonts.tabs.selected = "14pt Hack"
+#c.fonts.tabs.unselected = "14pt Hack"
+c.fonts.default_size = "12pt"
+c.fonts.default_family = "Hack"
+c.zoom.default = 125
+c.colors.webpage.bg = base00
+#c.url.start_pages = "about:blank"
+c.url.default_page = "about:blank"
+c.content.user_stylesheets = \
+        "~/dev/solarized-everything-css/css/solarized-dark/" \
+        "solarized-dark-all-sites.css"
+c.content.images = False
+
+config.bind('gt', 'tab-next')
+config.bind('gT', 'tab-prev')
+config.bind('gf', 'view-source --pygments')
+config.bind('<Ctrl-e>', 'scroll down')
+config.bind('<Ctrl-y>', 'scroll up')
+config.bind(',d', 'config-cycle content.user_stylesheets ' \
+        '~/dev/solarized-everything-css/css/solarized-dark/' \
+        'solarized-dark-all-sites.css ""')
+config.bind(',i', 'config-cycle content.images true false;; reload --force')
+config.bind(',c', 'config-cycle content.cookies.accept never no-3rdparty;; \
+        reload --force')
+config.bind(',j', 'config-cycle content.javascript.enabled true false;; \
+        reload --force')
 
 # set qutebrowser colors
 
@@ -284,16 +301,3 @@ c.colors.tabs.pinned.selected.odd.bg    = base02
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # c.colors.webpage.bg = base00
-
-#c.fonts.statusbar = "14pt Hack"
-#c.fonts.tabs.selected = "14pt Hack"
-#c.fonts.tabs.unselected = "14pt Hack"
-c.fonts.default_size = "12pt"
-c.fonts.default_family = "Hack"
-c.zoom.default = 125
-c.colors.webpage.bg = base00
-#c.url.start_pages = "about:blank"
-c.url.default_page = "about:blank"
-c.content.user_stylesheets = \
-        "~/dev/solarized-everything-css/css/solarized-dark/" \
-        "solarized-dark-all-sites.css"
