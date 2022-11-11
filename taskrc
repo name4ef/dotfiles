@@ -31,5 +31,12 @@ default.command=next
 max_active_tasks=1
 #journal.time=on
 
+alias.thisday = ((due<tom or (sche=today and -COMPLETED) or (sche<today and -COMPLETED) and context.args) or +ACTIVE or +debt or +note)
+alias.tomorrow = next ((due>eod and due<=eod+1d) or (sche>eod and sche<=eod+1d))
+alias.thisweek = next ((due>eod+1d and due<=eow) or (sche>eod+1d and sche<=eow)) and recur.not:daily
+alias.nextweek = list ((due>=eow and due<=eow+1w) or (sche>=eow and sche<=eow+1w)) and recur.not:daily
+alias.thismonth = list ((due>eow and due<=eom) or (sche>eow and sche<=eom)) and recur.not:daily and recur.not:weekly
+alias.nextmonth = list ((due>=eom and due<=eom+1m) or (sche>=eom and sche<=eom+1m)) and recur.not:daily and recur.not:weekly
+
 include ~/.taskrc.local
 news.version=2.6.0
