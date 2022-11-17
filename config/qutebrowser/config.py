@@ -20,8 +20,8 @@ base0D = "#268bd2"
 base0E = "#6c71c4"
 base0F = "#d33682"
 
-c.window.hide_decoration = True
-c.content.fullscreen.window = True
+#c.window.hide_decoration = True
+#c.content.fullscreen.window = True
 c.tabs.show = "multiple"
 #c.fonts.statusbar = "14pt Hack"
 #c.fonts.tabs.selected = "14pt Hack"
@@ -30,12 +30,13 @@ c.fonts.default_size = "12pt"
 c.fonts.default_family = "Hack"
 c.zoom.default = 125
 c.colors.webpage.bg = base00
-#c.url.start_pages = "about:blank"
+c.url.start_pages = "about:blank"
 c.url.default_page = "about:blank"
 c.content.user_stylesheets = \
         "~/dev/solarized-everything-css/css/solarized-dark/" \
         "solarized-dark-all-sites.css"
 c.content.images = False
+c.content.autoplay = False
 
 config.bind('gt', 'tab-next')
 config.bind('gT', 'tab-prev')
