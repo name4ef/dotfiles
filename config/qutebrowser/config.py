@@ -23,6 +23,7 @@ base0F = "#d33682"
 #c.window.hide_decoration = True
 #c.content.fullscreen.window = True
 c.tabs.show = "multiple"
+c.tabs.last_close = "blank"
 #c.fonts.statusbar = "14pt Hack"
 #c.fonts.tabs.selected = "14pt Hack"
 #c.fonts.tabs.unselected = "14pt Hack"
