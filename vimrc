@@ -200,6 +200,8 @@ map <F7> :set spelllang=ru spell<CR>
 map <F12> :set invlist<CR>
 imap <F2> <C-R>=strftime("%H:%M")<CR>
 imap <F3> <C-R>=strftime("%d.%m.%y")<CR>
+map <C-K> :py3f /usr/lib/llvm/14/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/lib/llvm/14/share/clang/clang-format.py<cr>
 
 " Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
@@ -221,17 +223,14 @@ map <Leader>vc :VimuxClearRunnerHistory<CR>
 " Zoom the tmux runner page
 map <Leader>vz :VimuxZoomRunner<CR>
 map <Leader>vm :VimuxRunCommand("make run")<CR>
-
 map <F9> :VimuxInterruptRunner<CR>
 map <Leader><Esc> :VimuxCloseRunner<CR>
-
 map <Esc>[19;2~ <S-F8>
 map <F8> :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 if !exists('g:VimuxLastCommand')
     let VimuxLastCommand = "make"
 endif
 nnoremap <S-F8> :VimuxPromptCommand(VimuxLastCommand)<CR>
-
 
 " For enabling modeline (execute commands from editing file)
 " Example: /* vim: set ts=8 sw=4 tw=0 noet: */
