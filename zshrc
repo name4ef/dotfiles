@@ -50,7 +50,7 @@ task_info()
 
 sdcv()
 {
-    /usr/bin/sdcv --non-interactive $@ \
+    /usr/bin/sdcv --non-interactive --exact-search --color $@ \
         | less --quit-if-one-screen --no-init
 }
 
@@ -111,10 +111,10 @@ if [ $TERM = "screen-256color" ]; then
 fi
 export PATH=/usr/lib/ccache/bin:~/.bin:~/.local/bin:/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=~/.local/lib:/usr/local/lib:$LD_LIBRARY_PATH
-export CCACHE_DIR="/var/cache/ccache"
+#export CCACHE_DIR="/var/cache/ccache"
 #export PS1='\h:\W \u\$ '
 export EDITOR=vim
-export TZ="Asia/Tomsk"
+#export TZ="Asia/Tomsk"
 setopt PROMPT_SUBST
 
 if [ `whoami` = "root" ]; then
