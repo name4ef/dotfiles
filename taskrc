@@ -25,6 +25,9 @@ report.tmux.verbose = nothing
 report.vim.description = Preparing task for insert in Vim
 report.vim.columns = description.count,uuid.short
 report.vim.verbose = nothing
+report.khal.description = Preparing task for khal purpose
+report.khal.columns = uuid,start.age,scheduled,description,tags
+report.khal.filter = +SCHEDULED -COMPLETED -DELETED
 
 default.command=next
 
