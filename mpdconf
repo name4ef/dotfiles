@@ -315,12 +315,12 @@ audio_output {
 # An example of an OS X output:
 #
 audio_output {
-    type        "osx"
-    name        "CoreAudio"
-    format		"48000:24:2"
-    #mixer_type "software"
-    #device		"Built-in Output"
-    #channel_map      "-1,-1,0,1"
+    type         "osx"
+    name         "CoreAudio"
+    format       "48000:24:2"
+    #mixer_type  "software"
+    #device      "Built-in Output"
+    #channel_map "-1,-1,0,1"
 }
 #
 # An example of an sndio output.
